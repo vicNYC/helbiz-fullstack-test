@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background-color: antiquewhite;
+}
+
+.container {
+  padding: 0 2.5%;
+}
+
+.first{
+  background-color: green
+}
+
+.second{
+background-color: purple;
+
+}

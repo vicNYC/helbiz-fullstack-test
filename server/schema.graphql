@@ -1,0 +1,30 @@
+type Query {
+    greetings: String
+    
+    jobs: [Job]
+    allbikes:[bikes]
+    bike(bike_id: ID!): [bikes]
+    
+
+
+}
+
+type Job{
+    logo: String
+    ipo: String
+    currency: String
+    marketCapitalization: Int
+}
+
+
+
+type bikes {
+
+    bike_id: ID!
+    lat: Float
+    lon: Float
+    is_reserved: Int
+    is_disabled: Int
+    vehicle_type: String
+
+}

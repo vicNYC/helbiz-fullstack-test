@@ -1,6 +1,29 @@
 
 const apiResult= require('./server.js')
 
+const Query = {
+
+  greetings: ()=> "hello you are getting closer",
+  
+  
+  allbikes:()=> {
+      console.log(testing2)
+      return testing2},
+  
+  // bike: (parent,{bike_id},testing2,info)=> testing2.find( o=> o.bike_id === bike_id) 
+  bike:(root,{bike_id},context,info)=> { 
+    
+      let result1 =testing2.filter((a)=>{
+          return bike_id === a.bike_id
+      })
+  
+      console.log(result1)
+       return result1
+  }
+  
+  
+  
+  }
 
 const testing2 = [
   {
@@ -789,53 +812,6 @@ const testing2 = [
   }
 ]
 
-const Query = {
-
-greetings: ()=> "hello you are getting closer",
 
 
-allbikes:()=> {
-    console.log(testing2)
-    return testing2},
-
-// bike: (parent,{bike_id},testing2,info)=> testing2.find( o=> o.bike_id === bike_id) 
-bike:(root,{bike_id},context,info)=> { 
-  
-    let result1 =testing2.filter((a)=>{
-        return bike_id === a.bike_id
-    })
-
-    // let result=[];
-    // for( let i =0;i<testing2.length;i++){
-    //     if(testing2[i].bike_id=== args.bike_id){
-    //         result.push(testing2[i])
-    //     }
-    // }
-    console.log(result1)
-     return result1
-}
-
-
-
-}
-
-
-
-
-
-// bike:(root,args,context,info)=> { 
-  
-//     let result1 =testing2.filter((a)=>{
-//         return args.bike_id === a.bike_id
-//     })
-
-//     // let result=[];
-//     // for( let i =0;i<testing2.length;i++){
-//     //     if(testing2[i].bike_id=== args.bike_id){
-//     //         result.push(testing2[i])
-//     //     }
-//     // }
-//     console.log(result1)
-//      return result1
-// }
 module.exports={Query}

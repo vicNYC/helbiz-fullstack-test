@@ -7,94 +7,9 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {quickAccess} from './app.jsx'
+
 
 import React, { Component } from "react";
-
-// let quickAccess2
-
-// class Charting extends Component {
-//   let quickAccess2= {quickAccess}
-
-// render(){
-  
-//   return(
-// <h1> {quickAccess}</h1>
-
-//   )
-// }
-
-// }
-
-
-
-
-// render(){
-//     const useStyles = makeStyles({
-//       table: {
-//         minWidth: 650,
-//       },
-//     });
-    
-    
-//     const tempInfo= [
-//       {
-//         bike_id: 'Y4L6',
-//         lat: 38.8604,
-//         lon: -77.050562,
-//         is_reserved: 0,
-//         is_disabled: 0,
-//         vehicle_type: 'scooter'
-//       },
-//       {
-//         bike_id: 'J3V8',
-//         lat: 38.88691,
-//         lon: -77.093113,
-//         is_reserved: 0,
-//         is_disabled: 0,
-//         vehicle_type: 'scooter'
-//       },
-//       {
-//         bike_id: 'Y3U3',
-//         lat: 38.860507,
-//         lon: -77.093911,
-//         is_reserved: 0,
-//         is_disabled: 0,
-//         vehicle_type: 'scooter'
-//       },
-//       {
-//         bike_id: 'H7G6',
-//         lat: 38.879703,
-//         lon: -77.112601,
-//         is_reserved: 0,
-//         is_disabled: 0,
-//         vehicle_type: 'scooter'
-//       },
-//       {
-//         bike_id: 'O1Q4',
-//         lat: 38.8792,
-//         lon: -77.1132,
-//         is_reserved: 0,
-//         is_disabled: 0,
-//         vehicle_type: 'scooter'
-//       }
-//     ]
-//     return(
-
-//       <h1>omg</h1>
-//     )
-  
-
-  
-
- 
-// }}
-
-
-
-
-// export default Charting
-/************************************                ***********/
 
 
 const useStyles = makeStyles({
@@ -104,11 +19,40 @@ const useStyles = makeStyles({
 });
 
 
-console.log(quickAccess)
+export default function DenseTable() {
+  const classes = useStyles();
 
-// const tempInfo= props.bikeDisplay
-
-// const quickAccess2= quickAccess.allbikes
+  return (
+        <TableContainer component={Paper}>
+      <Table className={classes.table} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell> bike_id</TableCell>
+            <TableCell align="right">lat</TableCell>
+            <TableCell align="right">lon</TableCell>
+            <TableCell align="right">is_reserved</TableCell>
+            <TableCell align="right"> is_disabled</TableCell>
+            <TableCell align="right"> vehicle_type</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tempInfo.map((row) => (
+            <TableRow key={row.bike_id}>
+              <TableCell component="th" scope="row">
+                {row.bike_id}
+              </TableCell>
+              <TableCell align="right">{row.lat}</TableCell>
+              <TableCell align="right">{row.lon}</TableCell>
+              <TableCell align="right">{row.is_reserved}</TableCell>
+              <TableCell align="right">{row.is_disabled}</TableCell>
+              <TableCell align="right">{row.vehicle_type}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
 
 const tempInfo=   [
   {
@@ -900,37 +844,4 @@ const tempInfo=   [
 
 
 
-export default function DenseTable() {
-  const classes = useStyles();
 
-  return (
-        <TableContainer component={Paper}>
-      <Table className={classes.table} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell> bike_id</TableCell>
-            <TableCell align="right">lat</TableCell>
-            <TableCell align="right">lon</TableCell>
-            <TableCell align="right">is_reserved</TableCell>
-            <TableCell align="right"> is_disabled</TableCell>
-            <TableCell align="right"> vehicle_type</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tempInfo.map((row) => (
-            <TableRow key={row.bike_id}>
-              <TableCell component="th" scope="row">
-                {row.bike_id}
-              </TableCell>
-              <TableCell align="right">{row.lat}</TableCell>
-              <TableCell align="right">{row.lon}</TableCell>
-              <TableCell align="right">{row.is_reserved}</TableCell>
-              <TableCell align="right">{row.is_disabled}</TableCell>
-              <TableCell align="right">{row.vehicle_type}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
